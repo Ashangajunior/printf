@@ -1,36 +1,24 @@
 #include "main.h"
 
 /**
- * _puts - prints a string
- * @str: parameter
- * Return: void value
+ * _putchar - write char
+ * @c: char
+ * Return: int vlue of char
  */
-int _puts(char *str)
+int _putchar(char c)
 {
-	char *a = str;
-
-	while (*str)
-		_putchar(*str++);
-	return (str - a);
+	return (write(1, &c, 1));
 }
-
 /**
- * _putchar - writes character
- * @c: parameter
- * Return: On success 1.
- * On error, -1 is returned, and errno is set appropriately
+ * _puts - prints a string
+ * @s: pointer to char
+ * Return: number of char
  */
-int _putchar(int c)
+int _puts(char *s)
 {
-	static int i;
-	static char buf[BUFF_SIZE];
+	int i;
 
-	if (c == BUF_FLUSH || i >= BUFF_SIZE)
-	{
-		write(1, buf, i);
-		i = 0;
-	}
-	if (c != BUF_FLUSH)
-		buf[i++] = c;
-	return (1);
+	for (i = 0; s[i]; i++)
+		_putchar(s[i]);
+	return (i);
 }
