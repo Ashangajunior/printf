@@ -10,8 +10,17 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 		{"c", print_char},
 		{"s", print_string},
 		{"%", print_percent},
+		{"d", print_int},
+		{"i", print_int},
 		{"b", print_binary},
+		{"u", print_unsigned},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_HEX},
 		{"S", print_S},
+		{"p", print_address},
+		{"r", print_rev},
+		{"R", print_rot13},
 		{NULL, NULL}
 	};
 	int i = 0;
@@ -26,7 +35,6 @@ int (*get_specifier(char *s))(va_list ap, params_t *params)
 	}
 	return (NULL);
 }
-
 /**
  * get_print_func - finds the format func
  * @s: the format string
@@ -42,7 +50,6 @@ int get_print_func(char *s, va_list ap, params_t *params)
 		return (f(ap, params));
 	return (0);
 }
-
 /**
  * get_flag - finds the flag
  * @s: the format string
@@ -73,7 +80,6 @@ int get_flag(char *s, params_t *params)
 	}
 	return (i);
 }
-
 /**
  * get_modifier - finds the modifier func
  * @s: the format string
