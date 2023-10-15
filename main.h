@@ -17,6 +17,7 @@ typedef struct convert cnvr_t;
 int _printf(const char *format, ...);
 int _putchar(char c);
 int _puts(char *s);
+int _reciever(const char *format, conver_t f_list[], va_list arg_list);
 /**
  * task0
 */
