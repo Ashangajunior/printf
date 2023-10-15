@@ -6,31 +6,41 @@
  */
 int _printf(const char *format, ...)
 {
-	int ch;
-	conver_t f_list[] = {
-		{"%", print_percent},
-		{"d", print_integer},
-		{"i", print_integer},
-		{"c", print_char},
-		{"s", print_string},
-		{"b", print_binary},
-		{"u", print_unsigned_integer},
-		{"o", print_octal},
-		{"x", print_hex},
-		{"X", print_HEX},
-		{"S", print_String},
-		{"p", print_pointer},
-		{"r", print_rev},
-		{"R", print_rot13},
-		{NULL, NULL},
-	};
-	va_list arg_list;
+	int sum = 0;
+	va_list i;
+	char *p, *s;
+	params_t params = PARAMS_INIT;
 
-	if (format == NULL)
+	va_start(i, format);
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
-
-	va_start(arg_list, format);
-	ch = _reciever(format, f_list, arg_list);
-	va_end(arg_list);
-	return (ch);
+	if (format[0] == '%' && format[1] == ' ' && !format[2])
+		return (-1);
+	for (p = (char *)format; *p; p++)
+	{
+		init_params(&params, i);
+		if (*p != '%')
+		{
+			sum += _putchar(*p);
+			continue;
+		}
+		s = p;
+		p++;
+		while (get_flag(p, &params))
+		{
+			p++;
+		}
+		p = get_width(p, &params, i);
+		p = get_precision(p, &params, i);
+		if (get_modifier(p, &params))
+			p++;
+		if (!get_specifier(p))
+			sum += print_from_to(s, p,
+				params.l_modifier || params.h_modifier ? p - 1 : 0);
+		else
+			sum += get_print_func(p, i, &params);
+	}
+	_putchar(BUF_FL);
+	va_end(i);
+	return (sum);
 }
