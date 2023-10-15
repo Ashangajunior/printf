@@ -4,7 +4,7 @@
  * @format: string
  * Return: the num of bytes
  */
-nt _printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
 	int ch;
 	conver_t f_list[] = {
@@ -30,7 +30,7 @@ nt _printf(const char *format, ...)
 		return (-1);
 
 	va_start(arg_list, format);
-	ch = format_reciever(format, f_list, arg_list);
+	ch = _reciever(format, f_list, arg_list);
 	va_end(arg_list);
 	return (ch);
 }
