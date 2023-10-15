@@ -1,20 +1,17 @@
 #include "main.h"
-
 /**
- * _isdigit - checks if character is digit
- * @c: the character to check
+ * _isdigit - checks if digit
+ * @c: check char
  * Return: 1 if digit, 0 otherwise
  */
 int _isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
-
 /**
- * _strlen - returns the length of a string
- * @s: the string whose length to check
- *
- * Return: integer length of string
+ * _strlen - the length
+ * @s: the checker
+ * Return: int length of string
  */
 int _strlen(char *s)
 {
@@ -24,12 +21,10 @@ int _strlen(char *s)
 		i++;
 	return (i);
 }
-
 /**
  * print_number - prints a number with options
  * @str: the base number as a string
  * @params: the parameter struct
- *
  * Return: chars printed
  */
 int print_number(char *str, params_t *params)
@@ -55,12 +50,10 @@ int print_number(char *str, params_t *params)
 	else
 		return (print_number_left_shift(str, params));
 }
-
 /**
  * print_number_right_shift - prints a number with options
  * @str: the base number as a string
  * @params: the parameter struct
- *
  * Return: chars printed
  */
 int print_number_right_shift(char *str, params_t *params)
@@ -97,12 +90,10 @@ int print_number_right_shift(char *str, params_t *params)
 	n += _puts(str);
 	return (n);
 }
-
 /**
  * print_number_left_shift - prints a number with options
  * @str: the base number as a string
  * @params: the parameter struct
- *
  * Return: chars printed
  */
 int print_number_left_shift(char *str, params_t *params)
