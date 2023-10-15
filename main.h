@@ -12,7 +12,7 @@ struct convert
 	char *sym;
 	int (*f)(va_list);
 };
-typedef struct convert cnvr_t;
+typedef struct convert conver_t;
 
 int _printf(const char *format, ...);
 int _putchar(char c);
