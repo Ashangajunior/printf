@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * init_params - clears struct fields and reset buff
- * @para: struct
+ * @para: struct pointer
  * @ap: pointer
  * Return: void value
  */
