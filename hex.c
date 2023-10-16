@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * print_hex - prints unsigned hex number
- * @ap: argument pointer
+ * @ap: pointer
  * @para: parameters struct
  * Return: bytes printed
  */
