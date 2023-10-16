@@ -3,16 +3,16 @@
  * print_from_to - prints char
  * @start: address
  * @stop: address
- * @except: address
+ * @ex: address
  * Return: sum value
  */
-int print_from_to(char *start, char *stop, char *except)
+int print_from_to(char *start, char *stop, char *ex)
 {
 	int sum = 0;
 
 	while (start <= stop)
 	{
-		if (start != except)
+		if (start != ex)
 			sum += _putchar(*start);
 		start++;
 	}
@@ -21,14 +21,14 @@ int print_from_to(char *start, char *stop, char *except)
 /**
  * print_rev - the rev of string
  * @ap: string
- * @params: parameter
+ * @para: parameter
  * Return: sum value
  */
-int print_rev(va_list ap, params_t *params)
+int print_rev(va_list ap, para_t *para)
 {
 	int len, s = 0;
 	char *str = va_arg(ap, char *);
-	(void)params;
+	(void)para;
 
 	if (str)
 	{
@@ -43,17 +43,17 @@ int print_rev(va_list ap, params_t *params)
 /**
  * print_rot13 - prints rot13
  * @ap: string
- * @params: parameter
+ * @para: parameter
  * Return: bytes num
  */
-int print_rot13(va_list ap, params_t *params)
+int print_rot13(va_list ap, para_t *para)
 {
 	int i = 0, index = 0;
 	int c = 0;
 	char arr[] =
 		"NOPQRSTUVWXYZABCDEFGHIJKLM      nopqrstuvwxyzabcdefghijklm";
 	char *s = va_arg(ap, char *);
-	(void)params;
+	(void)para;
 
 	while (s[i])
 	{

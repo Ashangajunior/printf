@@ -3,13 +3,13 @@
 /**
  * get_precision - gets the precision
  * @p: the format string
- * @params: the parameters struct
+ * @para: the parameters struct
  * @ap: pointer
  * Return: p value
  */
-char *get_precision(char *p, params_t *params, va_list ap)
+char *get_precision(char *p, para_t *para, va_list ap)
 {
-	int i = 0;
+	int d = 0;
 
 
 	if (*p != '.')
@@ -17,14 +17,14 @@ char *get_precision(char *p, params_t *params, va_list ap)
 	p++;
 	if (*p == '*')
 	{
-		i = va_arg(ap, int);
+		d = va_arg(ap, int);
 		p++;
 	}
 	else
 	{
 		while (_isdigit(*p))
-			i = i * 10 + (*p++ - '0');
+			d = d * 10 + (*p++ - '0');
 	}
-	params->precision = i;
+	para->precision = d;
 	return (p);
 }
