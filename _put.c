@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * _puts - prints a string
+ * _puts - prints strings
  * @s: pointer to char
  * Return: number of char
  */
