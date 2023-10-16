@@ -80,7 +80,7 @@ int print_rot13(va_list ap, para_t *para);
 /* print_number.c */
 int _isdigit(int c);
 int _strlen(char *s);
-int print_number(char *str, para_t *par);
+int print_number(char *str, para_t *para);
 int print_number_right_shift(char *str, para_t *para);
 int print_number_left_shift(char *str, para_t *para);
 /* params.c  */

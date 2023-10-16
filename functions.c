@@ -10,11 +10,11 @@ int print_char(va_list ap, para_t *para)
 	char pad_ch = ' ';
 	unsigned int pad = 1, s = 0, ch = va_arg(ap, int);
 
-	if (params->minus_flag)
+	if (para->minus_flag)
 		s += _putchar(ch);
-	while (pad++ < params->width)
+	while (pad++ < para->width)
 		s += _putchar(pad_ch);
-	if (!params->minus_flag)
+	if (!para->minus_flag)
 		s += _putchar(ch);
 	return (s);
 }
