@@ -62,7 +62,7 @@ int print_address(va_list ap, para_t *para)
 	unsigned long int n = va_arg(ap, unsigned long int);
 	char *s;
 
-	if (n == NULL)
+	if (!n)
 		return (_puts("(nil)"));
 	s = convert(n, 16, CONVERT_UNSIGNED | CONVERT_LOWERCASE, para);
 	*--s = 'x';
